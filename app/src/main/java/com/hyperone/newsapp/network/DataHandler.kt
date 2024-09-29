@@ -1,4 +1,4 @@
-package com.paymob.moviesapp.network
+package com.hyperone.newsapp.network
 
 sealed class DataHandler<out T> {
     object ShowLoading : DataHandler<Nothing>()

@@ -18,7 +18,17 @@
         tools:layout="@layout/fragment_register"/>
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.hyperone.newsapp.home.NewsFragment"
+        android:name="com.hyperone.newsapp.home.ui.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.hyperone.newsapp.favorite.ui.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.hyperone.newsapp.home.ui.NewsDetailsFragment"
+        android:label="fragment_news_details"
+        tools:layout="@layout/fragment_news_details" />
 </navigation>

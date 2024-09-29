@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hyperone.newsapp.authentication.model.UserModel
 import com.hyperone.newsapp.authentication.repo.UserRepo
-import com.hyperone.newsapp.model.UserModel
+import com.hyperone.newsapp.network.DataHandler
 import com.hyperone.newsapp.utils.SharedPreferenceManager
-import com.paymob.moviesapp.network.DataHandler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

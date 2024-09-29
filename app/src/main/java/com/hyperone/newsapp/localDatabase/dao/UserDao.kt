@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.hyperone.newsapp.model.UserModel
+import com.hyperone.newsapp.authentication.model.UserModel
 
 @Dao
 interface UserDao {

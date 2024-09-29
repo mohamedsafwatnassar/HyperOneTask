@@ -1,8 +1,8 @@
 package com.hyperone.newsapp.authentication.repo
 
+import com.hyperone.newsapp.authentication.model.UserModel
 import com.hyperone.newsapp.localDatabase.dao.UserDao
-import com.hyperone.newsapp.model.UserModel
-import com.paymob.moviesapp.network.DataHandler
+import com.hyperone.newsapp.network.DataHandler
 import javax.inject.Inject
 
 class UserRepo @Inject constructor(

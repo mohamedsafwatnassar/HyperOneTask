@@ -13,10 +13,11 @@ import com.hyperone.newsapp.R
 import com.hyperone.newsapp.authentication.viewModel.AuthenticationViewModel
 import com.hyperone.newsapp.base.BaseFragment
 import com.hyperone.newsapp.databinding.FragmentLoginBinding
+import com.hyperone.newsapp.network.DataHandler
 import com.hyperone.newsapp.utils.SharedPreferenceManager
+import com.hyperone.newsapp.utils.ViewsManager
 import com.hyperone.newsapp.utils.extentions.customNavigate
 import com.hyperone.newsapp.utils.extentions.onDebouncedListener
-import com.paymob.moviesapp.network.DataHandler
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -56,9 +57,10 @@ class LoginFragment : BaseFragment() {
     private fun setBtnListeners() {
         binding.btnLogin.onDebouncedListener {
             hideKeyboard()
-            if (validateAllInputs()) {
+            viewModel.loginUser("mohamed2@gmail.com", "123456789")
+            /*if (validateAllInputs()) {
                 viewModel.loginUser(email, password)
-            }
+            }*/
         }
 
         binding.txtSignup.onDebouncedListener {
@@ -171,6 +173,7 @@ class LoginFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
+        (requireActivity() as ViewsManager).hideBottomNav()
         handleNavigation()
     }
 

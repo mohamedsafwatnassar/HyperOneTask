@@ -3,6 +3,8 @@ package com.hyperone.newsapp.di
 import android.content.Context
 import androidx.room.Room
 import com.hyperone.newsapp.localDatabase.LocalDataBase
+import com.hyperone.newsapp.localDatabase.dao.FavoriteArticleDao
+import com.hyperone.newsapp.localDatabase.dao.NewsDao
 import com.hyperone.newsapp.localDatabase.dao.UserDao
 import dagger.Module
 import dagger.Provides
@@ -29,5 +31,15 @@ object RoomModule {
     @Provides
     fun provideUserDao(db: LocalDataBase): UserDao {
         return db.userDao()
+    }
+
+    @Provides
+    fun provideArticleDao(db: LocalDataBase): NewsDao {
+        return db.newsDao()
+    }
+
+    @Provides
+    fun provideFavoriteArticle(db: LocalDataBase): FavoriteArticleDao {
+        return db.favoriteArticleDao()
     }
 }

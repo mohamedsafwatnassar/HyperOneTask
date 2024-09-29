@@ -7,7 +7,6 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hyperone.newsapp.base.BaseActivity
@@ -29,12 +28,14 @@ class MainActivity : BaseActivity(), ViewsManager, NavController.OnDestinationCh
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initNavigationComponent()
+        initBottomNavigation()
     }
 
-    private fun initNavigationComponent() {
+    private fun initBottomNavigation() {
+        val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         navController.addOnDestinationChangedListener(this)
+        navView.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -54,6 +55,14 @@ class MainActivity : BaseActivity(), ViewsManager, NavController.OnDestinationCh
     override fun hideLoading() {
         binding.layoutLoading.root.gone()
         window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+    }
+
+    override fun showBottomNav() {
+        binding.navView.visible()
+    }
+
+    override fun hideBottomNav() {
+        binding.navView.gone()
     }
 
     override fun onDestinationChanged(

@@ -1,4 +1,4 @@
-package com.hyperone.newsapp.model
+package com.hyperone.newsapp.authentication.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

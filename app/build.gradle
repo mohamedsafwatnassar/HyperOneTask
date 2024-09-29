@@ -27,8 +27,7 @@ android {
             minifyEnabled false
             debuggable true
             buildConfigField("String", "BASE_URL", "\"https://newsapi.org/v2/\"")
-            buildConfigField("String", "BASE_POSTER_URL", "\"https://image.tmdb.org/t/p/w500/\"")
-            buildConfigField("String", "api_key", "\"344e477ac241420db1e7501341b3ff48\"") // 602b2180-d476-4c1f-8ca2-fa42230aaaef
+            buildConfigField("String", "api_key", "\"86e073d9237f4bdb8a2c702e377b764d\"") // 602b2180-d476-4c1f-8ca2-fa42230aaaef
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -38,8 +37,7 @@ android {
             minifyEnabled false
             debuggable true
             buildConfigField("String", "BASE_URL", "\"https://newsapi.org/v2/\"")
-            buildConfigField("String", "BASE_POSTER_URL", "\"https://image.tmdb.org/t/p/w500/\"")
-            buildConfigField("String", "api_key", "\"344e477ac241420db1e7501341b3ff48\"")
+            buildConfigField("String", "api_key", "\"86e073d9237f4bdb8a2c702e377b764d\"")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

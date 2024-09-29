@@ -3,7 +3,7 @@ package com.hyperone.newsapp.utils
 import android.app.Activity
 import android.app.Application
 import com.google.gson.Gson
-import com.hyperone.newsapp.model.UserModel
+import com.hyperone.newsapp.authentication.model.UserModel
 import javax.inject.Inject
 
 

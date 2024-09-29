@@ -12,9 +12,10 @@ import com.hyperone.newsapp.R
 import com.hyperone.newsapp.authentication.viewModel.AuthenticationViewModel
 import com.hyperone.newsapp.base.BaseFragment
 import com.hyperone.newsapp.databinding.FragmentRegisterBinding
+import com.hyperone.newsapp.network.DataHandler
+import com.hyperone.newsapp.utils.ViewsManager
 import com.hyperone.newsapp.utils.extentions.customNavigate
 import com.hyperone.newsapp.utils.extentions.onDebouncedListener
-import com.paymob.moviesapp.network.DataHandler
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -63,9 +64,10 @@ class RegisterFragment : BaseFragment() {
 
         binding.btnSignup.onDebouncedListener {
             hideKeyboard()
-            if (validateAllInputs()) {
+            viewModel.registerUser("mohamed2", "mohamed2@gmail.com", "123456789")
+            /*if (validateAllInputs()) {
                 viewModel.registerUser(username, email, password)
-            }
+            }*/
         }
 
         binding.txtLogin.setOnClickListener {
@@ -162,6 +164,11 @@ class RegisterFragment : BaseFragment() {
     private fun navigateToLoginScreen() {
         // Navigate to the main news screen
         findNavController().customNavigate(R.id.loginFragment)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        (requireActivity() as ViewsManager).hideBottomNav()
     }
 
     override fun onDestroyView() {
