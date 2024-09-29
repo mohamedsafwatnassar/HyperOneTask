@@ -19,6 +19,7 @@ import com.hyperone.newsapp.home.adapter.HorizontalNewsAdapter
 import com.hyperone.newsapp.home.adapter.VerticalNewsAdapter
 import com.hyperone.newsapp.home.viewModel.NewsViewModel
 import com.hyperone.newsapp.network.DataHandler
+import com.hyperone.newsapp.utils.ViewsManager
 import com.hyperone.newsapp.utils.extentions.customNavigate
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -239,6 +240,11 @@ class NewsFragment : BaseFragment() {
                 }
             },
         )
+    }
+
+    override fun onStart() {
+        super.onStart()
+        (requireActivity() as ViewsManager).showBottomNav()
     }
 
     override fun onDestroyView() {

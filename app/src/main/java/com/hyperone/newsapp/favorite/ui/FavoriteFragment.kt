@@ -14,6 +14,7 @@ import com.hyperone.newsapp.favorite.viewModel.FavoriteViewModel
 import com.hyperone.newsapp.home.adapter.VerticalNewsAdapter
 import com.hyperone.newsapp.home.model.ArticleEntity
 import com.hyperone.newsapp.network.DataHandler
+import com.hyperone.newsapp.utils.ViewsManager
 import com.hyperone.newsapp.utils.extentions.customNavigate
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -106,6 +107,11 @@ class FavoriteFragment : BaseFragment() {
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        (requireActivity() as ViewsManager).showBottomNav()
     }
 
     override fun onDestroyView() {
