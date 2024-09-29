@@ -64,10 +64,9 @@ class RegisterFragment : BaseFragment() {
 
         binding.btnSignup.onDebouncedListener {
             hideKeyboard()
-            viewModel.registerUser("mohamed2", "mohamed2@gmail.com", "123456789")
-            /*if (validateAllInputs()) {
+            if (validateAllInputs()) {
                 viewModel.registerUser(username, email, password)
-            }*/
+            }
         }
 
         binding.txtLogin.setOnClickListener {
@@ -102,7 +101,7 @@ class RegisterFragment : BaseFragment() {
             binding.edtEmail.error = getString(R.string.required)
             isValid = false
         } else if (!validEmail()) {
-            binding.edtEmail.error = "Please enter a valid email"
+            binding.edtEmail.error = getString(R.string.please_enter_a_valid_email)
             isValid = false
         } else {
             binding.edtEmail.error = null
@@ -118,7 +117,8 @@ class RegisterFragment : BaseFragment() {
             binding.edtPassword.error = getString(R.string.required)
             isValid = false
         } else if (password.length < 8) {
-            binding.edtPassword.error = "password should be more than 8 characters"
+            binding.edtPassword.error =
+                getString(R.string.password_should_be_more_than_8_characters)
             isValid = false
         } else {
             binding.edtEmail.error = null

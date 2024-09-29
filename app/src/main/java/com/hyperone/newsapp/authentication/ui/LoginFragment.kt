@@ -57,10 +57,9 @@ class LoginFragment : BaseFragment() {
     private fun setBtnListeners() {
         binding.btnLogin.onDebouncedListener {
             hideKeyboard()
-            viewModel.loginUser("mohamed2@gmail.com", "123456789")
-            /*if (validateAllInputs()) {
+            if (validateAllInputs()) {
                 viewModel.loginUser(email, password)
-            }*/
+            }
         }
 
         binding.txtSignup.onDebouncedListener {
@@ -99,7 +98,7 @@ class LoginFragment : BaseFragment() {
             binding.edtPassword.error = getString(R.string.required)
             isValid = false
         } else if (password.length < 8) {
-            binding.edtPassword.error = "password should more than 8 chars"
+            binding.edtPassword.error = getString(R.string.password_should_more_than_8_chars)
             isValid = false
         }
 

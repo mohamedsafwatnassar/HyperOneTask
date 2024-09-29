@@ -27,6 +27,8 @@
     <string name="search">Search</string>
     <string name="favorite">Favorite</string>
     <string name="news">News</string>
+    <string name="password_should_be_more_than_8_characters">password should be more than 8 characters</string>
+    <string name="password_should_more_than_8_chars">password should more than 8 chars</string>
 
     <string-array name="categories">
         <item>All</item>
