@@ -1,9 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.NewsApp" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.NewsApp" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
     </style>
 
     <style name="Theme.NewsApp" parent="Base.Theme.NewsApp" />
+
+    <style name="App_EditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingStart">@dimen/space_4x</item>
+        <item name="android:paddingEnd">@dimen/space_4x</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
 </resources>

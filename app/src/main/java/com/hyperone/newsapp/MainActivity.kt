@@ -1,19 +1,24 @@
 package com.hyperone.newsapp
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import android.view.WindowManager
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.hyperone.newsapp.base.BaseActivity
 import com.hyperone.newsapp.databinding.ActivityMainBinding
+import com.hyperone.newsapp.utils.ViewsManager
+import com.hyperone.newsapp.utils.extentions.gone
+import com.hyperone.newsapp.utils.extentions.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity(), ViewsManager, NavController.OnDestinationChangedListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -24,16 +29,38 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        initNavigationComponent()
+    }
 
+    private fun initNavigationComponent() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        navController.addOnDestinationChangedListener(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    override fun showLoading() {
+        binding.layoutLoading.root.visible()
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+        )
+    }
+
+    override fun hideLoading() {
+        binding.layoutLoading.root.gone()
+        window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+    }
+
+    override fun onDestinationChanged(
+        controller: NavController,
+        destination: NavDestination,
+        arguments: Bundle?,
+    ) {
+        hideLoading()
     }
 }

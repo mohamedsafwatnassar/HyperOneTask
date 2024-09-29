@@ -3,26 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.hyperone.newsapp.LoginFragment"
+        android:id="@+id/loginFragment"
+        android:name="com.hyperone.newsapp.authentication.ui.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login">
+        tools:layout="@layout/fragment_login"/>
 
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.hyperone.newsapp.RegisterFragment"
+        android:id="@+id/registerFragment"
+        android:name="com.hyperone.newsapp.authentication.ui.RegisterFragment"
         android:label="Register"
-        tools:layout="@layout/fragment_register">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_register"/>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.hyperone.newsapp.home.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
 </navigation>
