@@ -25,9 +25,6 @@ class AuthenticationViewModel @Inject constructor(
     val loginResult: LiveData<DataHandler<UserModel>> = _loginResult
 
     fun registerUser(username: String, email: String, password: String) {
-        println("userName: $username")
-        println("email: $email")
-        println("password: $password")
         val newUser = UserModel(userName = username, email = email, password = password)
 
         println("newUser: $newUser")
